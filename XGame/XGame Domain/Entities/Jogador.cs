@@ -1,6 +1,6 @@
 ﻿using System;
 using XGame.Domain.Entities.ValueObjects;
-using XGame_Domain.Enum;
+using XGame.Domain.Enum;
 
 namespace XGame.Domain.Entities
 {
