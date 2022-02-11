@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7236861c-8e48-47f5-8c8f-36a20881f21d": {
+      "ProjectGuid": "7236861c-8e48-47f5-8c8f-36a20881f21d",
+      "DisplayName": "XGame",
+      "ColorIndex": 0
+    },
+    "8a9bf185-8ae7-4fb1-8139-b4732b2bfddd": {
+      "ProjectGuid": "8a9bf185-8ae7-4fb1-8139-b4732b2bfddd",
+      "DisplayName": "XGame.Domain",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
