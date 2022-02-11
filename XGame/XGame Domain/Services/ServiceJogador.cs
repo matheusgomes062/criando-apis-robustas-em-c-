@@ -1,18 +1,29 @@
-﻿using XGame.Domain.Arguments.Jogador;
+﻿using System;
+using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Interfaces.Services;
+using XGame_Domain.Interfaces.Repositories;
 
 namespace XGame_Domain.Services
 {
     public class ServiceJogador : IServiceJogador
     {
-        public AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorRequest request)
+        private readonly IRepositoryJogador _repositoryJogador;
+
+        public ServiceJogador(IRepositoryJogador repositoryJogador)
         {
-            throw new System.NotImplementedException();
+            _repositoryJogador = repositoryJogador;
         }
 
-        public AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest )
+        public AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorRequest request)
         {
-            throw new System.NotImplementedException();
+            Guid id = _repositoryJogador.AdicionarJogador(request);
+
+            return new AdicionarJogadorResponse() { Id = id, Message = "Operação realizada com sucesso" };
+        }
+
+        public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,0 +1,2 @@
+# Enums
+Tipo de dado abstrato, cujos valores são atribuídos a exatamente um elemento de um conjunto finito de identificadores escolhidos pelo programador. Esse tipo é geralmente usado para variáveis categóricas, que não possuem uma ordem numérica definida.

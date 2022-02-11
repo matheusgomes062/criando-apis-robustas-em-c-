@@ -5,7 +5,7 @@ namespace XGame.Domain.Interfaces.Services
 {
     public interface IServiceJogador
     {
-        AutenticarJogadorResponse Autenticar(AutenticarJogadorRequest);
+        AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request);
 
         AdicionarJogadorResponse AdicionarJogador(AdicionarJogadorRequest request);
     }
