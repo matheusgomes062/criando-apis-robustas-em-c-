@@ -1,20 +1,20 @@
 ﻿using System;
+using XGame.Domain.Entities.ValueObjects;
+using XGame_Domain.Enum;
 
-namespace XGame_Domain.Entities
+namespace XGame.Domain.Entities
 {
     public class Jogador
     {
         public Guid Id { get; set; }
 
-        public string PrimeiroNome { get; set; }
+        public Nome Nome { get; private set; }
 
-        public string LastName {  get; set; }
-
-        public string Email { get; set; }
+        public Email Email { get; set; }
 
         public string Senha { get; set; }
         
-        public string Status { get; set; }
+        public EnumSituacaoJogador Status { get; set; }
 
     }
 }

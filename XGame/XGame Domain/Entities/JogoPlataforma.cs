@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace XGame_Domain.Entities
+namespace XGame.Domain.Entities
 {
     public class JogoPlataforma
     {

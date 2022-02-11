@@ -46,6 +46,9 @@
     <Compile Include="Entities\JogoPlataforma.cs" />
     <Compile Include="Entities\MeuJogo.cs" />
     <Compile Include="Entities\Plataforma.cs" />
+    <Compile Include="Enum\EnumSituacaoJogador.cs" />
+    <Compile Include="ValueObjects\Nome.cs" />
+    <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
