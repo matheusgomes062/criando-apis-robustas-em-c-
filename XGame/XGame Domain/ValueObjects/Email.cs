@@ -1,7 +1,17 @@
-﻿namespace XGame.Domain.Entities.ValueObjects
+﻿using prmToolkit.NotificationPattern;
+using XGame_Domain.Resources;
+
+namespace XGame.Domain.Entities.ValueObjects
 {
-    public class Email
+    public class Email : Notifiable
     {
-        public string Endereco { get; set; }
+        public Email(string endereco)
+        {
+            Endereco = endereco;
+
+            new AddNotifications<Email>(this).IfNotEmail(x => x.Endereco, string.Format(Message.X0_INVALIDO, "E-mail"));
+        }
+
+        public string Endereco { get; private set; }
     }
 }
