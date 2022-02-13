@@ -3,13 +3,17 @@ using System;
 using XGame.Domain.Entities.ValueObjects;
 using XGame.Domain.Enum;
 using XGame.Domain.Extensions;
+using XGame_Domain.Entities.Base;
 using XGame_Domain.Resources;
 
 namespace XGame.Domain.Entities
 {
-    public class Jogador : Notifiable
+    public class Jogador : EntityBase
     {
+        protected Jogador()
+        {
 
+        }
         public Jogador(Email email, string senha)
         {
             Email = email;
@@ -47,6 +51,16 @@ namespace XGame.Domain.Entities
             AddNotifications(nome, email);
         }
 
+        public void AlterarJogador(Nome nome, Email email, EnumSituacaoJogador status)
+        {
+            Nome = nome;
+            Email = email;
+
+            new AddNotifications<Jogador>(this).IfFalse(Status == EnumSituacaoJogador.Ativo, "Só é possível alterar jogador se ele estiver ativo.");
+
+            AddNotifications(nome, email);
+        }
+
         public Guid Id { get; private set; }
 
         public Nome Nome { get; private set; }
@@ -55,17 +69,7 @@ namespace XGame.Domain.Entities
 
         public string Senha { get; private set; }
         
-        public EnumSituacaoJogador Status { get; set; }
-
-        public void AlterarJogador(Nome nome, Email email, EnumSituacaoJogador status)
-        {
-            Nome = nome;
-            Email = email;
-
-            new AddNotifications<Jogador>(this).IfFalse(status == EnumSituacaoJogador.Ativo, "Só é possível alterar jogador se ele estiver ativo.");
-
-            AddNotifications(nome, email);
-        }
+        public EnumSituacaoJogador Status { get; private set; }
 
         public override string ToString()
         {
