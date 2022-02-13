@@ -1,10 +1,13 @@
 ﻿using prmToolkit.NotificationPattern;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using XGame.Domain.Arguments.Jogador;
 using XGame.Domain.Entities;
 using XGame.Domain.Entities.ValueObjects;
 using XGame.Domain.Enum;
 using XGame.Domain.Interfaces.Services;
+using XGame_Domain.Arguments.Jogador;
 using XGame_Domain.Interfaces.Repositories;
 using XGame_Domain.Resources;
 
@@ -32,11 +35,16 @@ namespace XGame.Domain.Services
                 return null;
             }
             
-            Guid id = _repositoryJogador.AdicionarJogador(jogador);
+           jogador = _repositoryJogador.AdicionarJogador(jogador);
 
-            jogador.Status = EnumSituacaoJogador.Ativo;
+            //jogador.Status = EnumSituacaoJogador.Ativo;
 
-            return new AdicionarJogadorResponse() { Id = id, Message = "Operação realizada com sucesso" };
+            return (AdicionarJogadorResponse)jogador;
+        }
+
+        public AlterarJogadorResponse AlterarJogador(AlterarJogadorRequest request)
+        {
+            throw new NotImplementedException();
         }
 
         public AutenticarJogadorResponse AutenticarJogador(AutenticarJogadorRequest request)
@@ -56,14 +64,14 @@ namespace XGame.Domain.Services
                 return null;
             }
 
-            var response = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
+            jogador = _repositoryJogador.AutenticarJogador(jogador.Email.Endereco, jogador.Senha);
 
-            return response;
+            return (AutenticarJogadorResponse)jogador;
         }
 
-        private bool IsEmail(string email)
+        public IEnumerable<JogadorResponse> ListarJogador()
         {
-            throw new NotImplementedException();
+            return _repositoryJogador.ListarJogador().ToList().Select(jogador => (JogadorResponse)jogador).ToList();
         }
     }
 }

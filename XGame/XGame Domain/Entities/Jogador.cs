@@ -57,5 +57,9 @@ namespace XGame.Domain.Entities
         
         public EnumSituacaoJogador Status { get; set; }
 
+        public override string ToString()
+        {
+            return this.Nome.PrimeiroNome + " " + this.Nome.UltimoNome;
+        }
     }
 }
