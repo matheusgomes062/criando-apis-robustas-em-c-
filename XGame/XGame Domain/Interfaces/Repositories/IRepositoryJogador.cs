@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using XGame.Domain.Entities;
 
 namespace XGame_Domain.Interfaces.Repositories
@@ -11,5 +12,7 @@ namespace XGame_Domain.Interfaces.Repositories
 
         IEnumerable<Jogador> ListarJogador();
 
+        Jogador ObterJogadorPorId(Guid id);
+        void AlterarJogador(Jogador jogador);
     }
 }
