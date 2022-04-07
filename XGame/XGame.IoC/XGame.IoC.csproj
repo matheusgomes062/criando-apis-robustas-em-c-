@@ -211,6 +211,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XGame Domain\XGame.Domain.csproj">
+      <Project>{8A9BF185-8AE7-4FB1-8139-B4732B2BFDDD}</Project>
+      <Name>XGame.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XGame.Infra\XGame.Infra.csproj">
       <Project>{7238E561-06B1-46E9-BEA4-34994792D3EF}</Project>
       <Name>XGame.Infra</Name>
